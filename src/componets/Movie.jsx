@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Loading from './Loading';
+import defaultImg from '../assets/img/film.jpg';
 
 function Movie() {
   const movieId = useParams().id;
@@ -83,7 +84,10 @@ function Movie() {
       <div className="container mt-5">
         <div className="row">
           <div className="col-12 mx-auto col-md-3 poster">
-            <img src={movie.Poster} alt={movie.Title} />
+            <img
+              src={movie.Poster === 'N/A' ? defaultImg : movie.Poster}
+              alt={movie.Title}
+            />
           </div>
           <div className="col-12 mt-5 mt-md-0 col-md-9 mx-auto">
             <div className="row">

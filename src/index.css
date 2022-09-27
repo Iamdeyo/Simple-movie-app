@@ -45,6 +45,8 @@ a.card:hover {
 }
 .card img {
   height: 100%;
+  max-height: 300px;
+  /* aspect-ratio: 9/16; */
 }
 @media screen and (max-width: 525px) {
   .card {
