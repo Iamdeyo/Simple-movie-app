@@ -9,7 +9,8 @@ function Movie() {
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState('Unable to get API data');
-  const API_URL = 'http://www.omdbapi.com/?apikey=30fc2a7b';
+  const API_URL =
+    'http://www.omdbapi.com/?apikey=' + process.env.REACT_APP_SECRET_KEY;
 
   useEffect(() => {
     const API_DATA = async () => {
@@ -33,7 +34,7 @@ function Movie() {
     };
 
     API_DATA();
-  }, [movieId]);
+  }, [movieId, API_URL]);
 
   if (isLoading) {
     return <Loading />;

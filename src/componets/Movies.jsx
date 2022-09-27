@@ -12,11 +12,9 @@ const MovieList = () => {
     'Please enter a movie Title'
   );
   const [search, setSearch] = useState('');
-  // const API_URL =
-  //   'http://www.omdbapi.com/?i=tt3896198&apikey=30fc2a7b&s=' + searchedMovies;
-
-  const API_URL = 'http://www.omdbapi.com/?apikey=30fc2a7b';
-
+  const API_URL =
+    'http://www.omdbapi.com/?apikey=' + process.env.REACT_APP_SECRET_KEY;
+  console.log(process.env.REACT_APP_SECRET_KEY);
   useEffect(() => {
     const API_DATA = async () => {
       try {
@@ -40,7 +38,7 @@ const MovieList = () => {
       API_DATA();
       setIsLoading(true);
     }
-  }, [search]);
+  }, [search, API_URL]);
 
   return (
     <>
